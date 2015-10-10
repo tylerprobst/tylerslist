@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Posts</h1>
+<hr />
+{% for post in posts %}
+	<h4>
+	{% if post.images %}
+		<img src="/assets/{{post.images[0].filename}}" height="100" width="100">
+	{% endif %}
+ 	<a href="/posts/{{post.id}}">{{post.title}}: {{post.body}}</a><h4/>
+ <p>Reply to: {{post.email}}</p>	
+ 	
+ <hr />
+{% endfor %}
+<hr />
+{% endblock %}

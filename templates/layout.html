@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/home.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/main.js"></script>
+  </head>
+	<div class="nav">
+		<body>	
+			{% with messages = get_flashed_messages() %}
+			{% for message in messages %}
+				<p>{{message}}</p>
+			{% endfor %}
+			<h1 align="center"><a href="/"><img src="/assets/Craiglist_Logo.png" height="250"></a>
+			<form action="/search" method="POST">
+				<input type="text" name="search"/>
+				<button type="submit">Search</button>
+			</form></h1>
+			<hr />
+			<ul style="list-style-type:none">
+	  			<li align="center"><a href="/categories">Categories</a></li>
+	  			<li align="center"><a href="/posts">Posts</a></li>
+	  			<li align="center"><a href="/create">Create Post</a></li>
+			</ul>
+			{% block body %}{% endblock %}
+			{% endwith %}
+		</body>
+	</div>
+</html>

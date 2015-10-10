@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+<hr />
+{% for category in categories %}
+	<p><a href="/categories/{{category.name}}">{{category.name}}</a></p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+<h1>Edit Post</h1>
+<form action="/edit/{{post.id}}" method="POST" enctype="multipart/form-data">
+Email address: <textarea name="email" rows="1" cols="30" readonly="readonly">{{post.email}}</textarea>	
+<p>Category: {{category_name}}</p>
+<textarea name="title" rows="1" cols="50" autofocus=autofocus>{{post.title}}</textarea>
+<textarea name="price" rows ="1" cols="18">{{post.price}}</textarea>
+<br><br>
+<textarea name="body" rows="10" cols="150">{{post.body}}</textarea>
+<input name="img_file" type="file">
+<input name="post_id" type="hidden" value="{{post_id}}">
+<p><button type="submit">Submit Post</button><p/>
+</form>
+

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>{{post.title}} -- ${{post.price}}</h1>
+<h5>Reply to: {{post.email}}</h5>
+<hr />
+<p>{{post.body}}</p>
+{% for image in images %}
+<img src="/assets/{{image.filename}}">
+{% endfor %}
+{% endblock %}
