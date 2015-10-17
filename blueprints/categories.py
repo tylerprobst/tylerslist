@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, render_template, flash, redirect, request
 from models import *
 from flask_mail import Message, Mail
+from sqlalchemy import or_
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -22,13 +23,12 @@ def category(catname):
 	return render_template('category.html', category=category)
 
 
-@cat.route('/search', methods=['GET', 'POST'])
-def search(query):
-	if request.method == 'GET':
-		return render_template('search.html', query=query)
-	elif request.method == 'POST':
-		search = request.form.get('search')
-	 	pass
+@cat.route('/search')
+def search():
+		query = request.args.get('query')
+		posts = Post.querydb(query)
+		return render_template('search.html', posts=posts)
+	 	
 
 
 

@@ -1,22 +1,28 @@
-{% extends "layout.html" %}
-{% block body %}
-<h1>Create Post</h1>
-<form action="/create" method="POST" enctype="multipart/form-data" id="create">
-Email address: <input name="email" type="text" />	
-<p>Select category: <select name ="category_id">
-    				  {% for category in categories %}
-						<option value="{{category.id}}">{{category.name}}</option>
-    				  {% endfor %}	
-    				  </select></p>
-<textarea name="title" placeholder="Please enter the title of your post here." rows="1" cols="50" autofocus=autofocus>
-</textarea>
-<textarea name="price" placeholder="Enter Price" rows ="1" cols="18"></textarea>
-<br><br>
-<textarea name="body" placeholder="Please enter the body of your post here." rows="10" cols="150">
-</textarea>
-<input name="file[]" type="file" multiple>
-<p><button type="submit">Submit Post</button><p/>
-</form>
-{% endblock %}
-
+<!doctype html>
+<html>
+	<head>
+		{% extends "layout.html" %}
+	</head>	
+	<body>
+		{% block body %}
+		<h1>Create Post</h1>
+		<form action="/create" method="POST" enctype="multipart/form-data" id="create">
+		Email address: <input name="email" type="text" />	
+		<p>Select category: <select name ="category_id">
+		    				  {% for category in categories %}
+								<option value="{{category.id}}">{{category.name}}</option>
+		    				  {% endfor %}	
+		    				  </select></p>
+		<textarea name="title" placeholder="Please enter the title of your post here." rows="1" cols="50" autofocus=autofocus>
+		</textarea>
+		<textarea name="price" placeholder="Enter Price" rows ="1" cols="18"></textarea>
+		<br><br>
+		<textarea name="body" placeholder="Please enter the body of your post here." rows="10" cols="150">
+		</textarea>
+		<input name="file[]" type="file" multiple>
+		<p><button type="submit">Submit Post</button><p/>
+		</form>
+		{% endblock %}
+	</body>
+</html>
 

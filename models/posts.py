@@ -1,6 +1,5 @@
 from db import db
 
-
 class Post(db.Model):
 	__tablename__= 'posts'
 	id = db.Column(db.Integer, primary_key=True)
@@ -23,20 +22,26 @@ class Post(db.Model):
 		except:
 			db.session.rollback()
 
+	def delete(self):
+		try:	
+			db.session.delete(self)
+			for image in self.images:	
+				db.session.delete(image)
 
+			db.session.commit()
+		except:
+			db.session.rollback() 
+			
 	@classmethod
 	def create(cls, *args, **kwargs):
-		#try:
-			# title = kwargs['title']
-			# body = kwargs['body']
-			# category_id = kwargs['category_id']
-			# email = kwargs['email']
-			# price = kwargs['price']
-			# token = kwargs['token']
-			# post = Post(title=title, body=body, category_id=category_id, email=email, price=price, token=token)
-		post = Post(**kwargs)
-		db.session.add(post)
-		db.session.commit()
-		#except:
-			#db.session.rollback()
+		try:
+			post = Post(**kwargs)
+			db.session.add(post)
+			db.session.commit()
+		except:
+			db.session.rollback()
 		return post
+
+	@classmethod
+	def querydb(cls, query):
+		return db.session.query(cls).filter(cls.title.ilike(query))

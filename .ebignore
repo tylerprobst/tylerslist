@@ -1,7 +1,6 @@
 venv/*
 *.pyc
-config.py
-uploads/
+uploads/*
 
 
 # Elastic Beanstalk Files

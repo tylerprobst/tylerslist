@@ -1,15 +1,12 @@
-#HW: make img class with id, post_id, and filename
-#HW: build relationship between posts and images 
 #HW: read docs on sqlalchemy query object for the search function!(try to figure out searching algorithm manually)
-#HW: figure out search and format html file properly
-
 
 from flask import Flask, Blueprint, request, session, send_from_directory, render_template, flash, redirect
 from models import *
 import bcrypt
 from flask_mail import Mail, Message
 from werkzeug import secure_filename
-import os
+import os, random, string
+
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -38,19 +35,30 @@ def create():
 		price = request.form.get('price')
 		filename = 'None'
 		token = bcrypt.gensalt()
-		post = Post.create(title=title, body=body, category_id=category_id, email=email, price=price, token=token)
-		for img_file in request.files.getlist('file[]'):
-			filename = secure_filename(img_file.filename) 			#randomize the filename using BCRYPT
-			if filename:
-				img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-				image = Image.create(filename=filename, post_id=post.id)
-		link = 'http://localhost:5000/edit/{1}?token={0}'.format(token, post.id)
-		msg = Message('Edit post email', sender='tprobstcoding@gmail.com', recipients=[email])
-		msg.body = "Use this link to edit your post: " + link
-		mail.send(msg)
-		flash('Post was successfully created, please check your email for an editing link.')
-		return redirect('/')
+		if title and body and email and price:
+			post = Post.create(title=title, body=body, category_id=category_id, email=email, price=price, token=token)
+			for img_file in request.files.getlist('file[]'):
+				if img_file:
+					filename = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(26)) + ".jpeg"
+				if filename:
+					img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+					image = Image.create(filename=filename, post_id=post.id)
+			link = 'http://localhost:5000/edit/{1}?token={0}'.format(token, post.id)
+			msg = Message('Edit post email', sender='tprobstcoding@gmail.com', recipients=[email])
+			msg.body = "Use this link to edit your post: " + link
+			mail.send(msg)
+			flash('Post was successfully created, please check your email for an editing link.')
+			return redirect('/')
+		else:
+			flash('please fill out the required fields')
+			return render_template('create.html')
 
+@posts.route('/post/delete/<path:post_id>')
+def delete(post_id):
+	post = Post.query.filter(Post.id==post_id).first()
+	post.delete()
+	flash('Post Deleted')
+	return redirect('/')
 
 @posts.route('/posts/<path:post_id>')
 def post(post_id):
@@ -92,9 +100,20 @@ def upload():
 	img_file = request.files.get('file')
 	filename = secure_filename(img_file.filename) 		
 	img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+	return '<img src="/uploads/{0}" />'.format(filename)
+
+@posts.route('/assets', methods=['POST'])
+def asset():
+	img_file = request.files.get('file')
+	filename = secure_filename(img_file.filename) 		
+	img_file.save(os.path.join(app.config['ASSET_FOLDER'], filename))
 	return '<img src="/assets/{0}" />'.format(filename)
 
 
 @posts.route('/assets/<path:filename>')
 def assets(filename):
-	return send_from_directory('uploads', filename)
+	return send_from_directory('assets', filename)
+
+@posts.route('/uploads/<path:filename>')
+def uploads(filename):
+	return send_from_directory('uploads', filename)	

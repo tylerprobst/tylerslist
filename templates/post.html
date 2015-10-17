@@ -4,7 +4,9 @@
 <h5>Reply to: {{post.email}}</h5>
 <hr />
 <p>{{post.body}}</p>
-{% for image in images %}
-<img src="/assets/{{image.filename}}">
+<div class="images">
+	{% for image in images %}
+	<img src="/uploads/{{image.filename}}">
+</div>
 {% endfor %}
 {% endblock %}
