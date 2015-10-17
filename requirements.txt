@@ -1,6 +1,5 @@
 bcrypt==2.0.0
 blinker==1.4
-cffi==1.2.1
 Flask==0.10.1
 Flask-Mail==0.9.0
 Flask-SQLAlchemy==2.0
