@@ -1,5 +1,5 @@
 $(document).ready(function () { 
 	$('form#create').on('change', 'input[type="file"]', function (){
-		$('form#create').append('<input name="file[]" type="file" multiple>');
+		$('div#photo-upload').append('<p><input name="file[]" type="file" multiple></p>');
 	})	
 })
