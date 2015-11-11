@@ -2,7 +2,7 @@
 {% block body %}
 <div class="categories">
 	{% for category in categories %}
-		<p><a id="category" href="/categories/{{category.name}}">{{category.name}}</a></p>
+		<button id="category" type="button" class="btn btn-default"><a id="category" href="/categories/{{category.name}}">{{category.name}}</a></button>
 	{% endfor %}
 </div>
 {% endblock %}

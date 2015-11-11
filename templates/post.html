@@ -6,7 +6,7 @@
 <p>{{post.body}}</p>
 <div class="images">
 	{% for image in images %}
-	<img src="/uploads/{{image.filename}}">
+	<img src="{{config['S3_BUCKET_LINK']}}{{image.filename}}">
 </div>
 {% endfor %}
 {% endblock %}

@@ -1,10 +1,13 @@
 body {
-	background-image: url("/assets/backgroundIMG.jpeg");
+	background-image: url("/assets/tahoebackground.JPG");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
 	background-color: #cccccc;
 	background-size: cover;
+	min-width: 960px
 }
 
-p#flash {
+#flash p {
 	font-size: 45px;
 	color: red;
 	text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,0px 1px 0 #000,0px -1px 0 #000,-1px 0px 0 #000,1px 0px 0 #000,2px 2px 0 #000,-2px 2px 0 #000,2px -2px 0 #000,-2px -2px 0 #000,0px 2px 0 #000,0px -2px 0 #000,-2px 0px 0 #000,2px 0px 0 #000,1px 2px 0 #000,-1px 2px 0 #000,1px -2px 0 #000,-1px -2px 0 #000,2px 1px 0 #000,-2px 1px 0 #000,2px -1px 0 #000,-2px -1px 0 #000;
@@ -20,13 +23,26 @@ a {
 	text-decoration: underline;
 } 
 
-button#search {
+
+#category a {
+	color: black; 	
+	font-size: 30px;
+}
+
+#category button {
+	float: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+
+#search button {
 	height: 50px;
 	width: 150px;
 	font-size:  
 }
 
-input#search {
+#search input {
 	height: 35px;
 	width: 425px;
 	font-size: 28px;
@@ -36,19 +52,23 @@ input#search {
 	float: right;
 }
 .search {
-	float: right;
-	clear: both;
-	padding-right: 50px;
+	/*float: right;
+	clear: both;*/
+	padding-right: 800px;
+	padding-left: 20px;
 }
 
 .categories {
 	text-align: center;
 	font-size: 25px;
+	color: black;
 }
 
-.nav {
-	display: inline-block;
-	font-size: 20px;
-	padding-top: 240px;
-    padding-left: 450px;
+#nav-button {
+	font-size: 28px;
+	color: black;
+}
+
+#navbar {
+	background: none;
 }
