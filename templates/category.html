@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>{{category.name}}</h1>
+<hr />
+{% for post in category.posts %}
+	<h4><a href="/posts/{{post.id}}">{{post.title}}</a><h4/>
+	<p>Reply to: {{post.email}}</p>	
+	<p>{{post.body}}</p>	
+	<hr />
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		{% extends "layout.html" %}
+		{% block body %}
+		<div class="posts">
+			{% for post in posts %}
+			 <div class="post">
+				{% if post.images %}
+					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100">
+				{% endif %}
+			 	<a href="/posts/{{post.id}}">{{post.title}}: {{post.body}}</a></p>
+			 	<p>Reply to: {{post.email}}</p>
+			 </div>
+		</div> 	
+		 <hr />x
+		{% endfor %}
+		{% endblock %}
+	</body>
+</html>
