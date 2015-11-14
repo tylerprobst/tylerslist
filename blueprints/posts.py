@@ -33,19 +33,19 @@ def create():
 		category_id = request.form.get('category_id')
 		email = request.form.get('email')
 		price = request.form.get('price')
-		filename = 'None'
 		token = bcrypt.gensalt()
 		if title and body and email and price:
 			post = Post.create(title=title, body=body, category_id=category_id, email=email, price=price, token=token)
 			for img_file in request.files.getlist('file[]'):
+				filename = 'None'
 				if img_file:
 					filename = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(26)) + ".jpeg"
-				if filename:
-					# img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-					key = bucket.new_key(filename)
-					key.set_contents_from_string(img_file.read())
-					key.set_canned_acl('public-read')
-					image = Image.create(filename=filename, post_id=post.id)
+					if filename:
+						# img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+						key = bucket.new_key(filename)
+						key.set_contents_from_string(img_file.read())
+						key.set_canned_acl('public-read')
+						image = Image.create(filename=filename, post_id=post.id)
 			link = 'http://localhost:5000/edit/{1}?token={0}'.format(token, post.id)
 			msg = Message('Edit post email', sender='tprobstcoding@gmail.com', recipients=[email])
 			msg.body = "Use this link to edit your post: " + link
