@@ -46,7 +46,7 @@ def create():
 						key.set_contents_from_string(img_file.read())
 						key.set_canned_acl('public-read')
 						image = Image.create(filename=filename, post_id=post.id)
-			link = 'http://localhost:5000/edit/{1}?token={0}'.format(token, post.id)
+			link = 'http://tylerslist.elasticbeanstalk.com/edit/{1}?token={0}'.format(token, post.id)
 			msg = Message('Edit post email', sender='tprobstcoding@gmail.com', recipients=[email])
 			msg.body = "Use this link to edit your post: " + link
 			mail.send(msg)
