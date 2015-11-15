@@ -5,18 +5,16 @@
 	<body>
 		{% extends "layout.html" %}
 		{% block body %}
-		<div class="posts">
+		<div class="btn-group-vertical" class="posts">
 			{% for post in posts %}
-			 <div class="post">
+			 	<button id="post" class="btn btn-success btn">
 				{% if post.images %}
-					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100">
+					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="150" width="150">
 				{% endif %}
-			 	<a href="/posts/{{post.id}}">{{post.title}}: {{post.body}}</a></p>
-			 	<p>Reply to: {{post.email}}</p>
-			 </div>
+			 	<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a>
+			 	<p>Reply to: {{post.email}}</p></button>
+			{% endfor %}
 		</div> 	
-		 <hr />x
-		{% endfor %}
 		{% endblock %}
 	</body>
 </html>

@@ -7,6 +7,10 @@ body {
 	min-width: 960px
 }
 
+h1 {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 #flash p {
 	font-size: 45px;
 	color: red;
@@ -27,13 +31,13 @@ a {
 #category a {
 	color: black; 	
 	font-size: 30px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 #category button {
 	float: left;
 	padding-top: 10px;
 	padding-bottom: 10px;
-
 }
 
 #search button {
@@ -64,11 +68,25 @@ a {
 	color: black;
 }
 
+.jumbotron {
+	opacity: .85;
+}
+
 #nav-button {
 	font-size: 28px;
 	color: black;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 #navbar {
 	background: none;
+}
+
+#post {
+	width: 500px;
+	height: 190px;
+}
+
+#post-title {
+	font-size: 20px;
 }
