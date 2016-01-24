@@ -14,27 +14,24 @@
 			{% endfor %}
 				<nav id="navbar">
 					<a href="/"><img src="/assets/Craiglist_Logo.png"></a>
-					<div>
-				    	<div>
-							<ul class="nav nav-pills">
-			  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/categories">Categories</a></li>
-			  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/posts">Posts</a></li>
-			  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/create">Create Post</a></li> 
-							</ul>
-				    	</div>
-				    	<div class="search">
-					<h1><form action="/search" method="GET">
-						<div class="input-group">
-      						<input type="text" class="form-control" placeholder="Search for...">
-      						<span class="input-group-btn">
-        					<button class="btn btn-default" type="button">Search!</button>
-      						</span>
-    					</div>
-					</form></h1>
-				</div>
+			    	<div>
+						<ul class="nav nav-pills">
+		  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/categories">Categories</a></li>
+		  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/posts">Posts</a></li>
+		  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/create">Create Post</a></li> 
+						</ul>
+			    	</div>
+			    	<div class="search">
+						<form action="/search" method="GET">
+							<div class="input-group">
+	      						<input type="text" class="form-control" placeholder="Search for...">
+	      						<span class="input-group-btn">
+	        					<button class="btn btn-default" type="submit">Search!</button>
+	      						</span>
+	      					</div>
+						</form>
 					</div>
 				</nav>
-			</div>
 			{% block body %}{% endblock %}
 			{% endwith %}
 		</body>

@@ -40,24 +40,10 @@ a {
 	padding-bottom: 10px;
 }
 
-#search button {
-	height: 50px;
-	width: 150px;
-	font-size:  
-}
-
-#search input {
-	height: 35px;
-	width: 425px;
-	font-size: 28px;
-}
-
 .main-logo {
 	float: right;
 }
 .search {
-	/*float: right;
-	clear: both;*/
 	padding-right: 800px;
 	padding-left: 20px;
 }
@@ -73,7 +59,7 @@ a {
 }
 
 #nav-button {
-	font-size: 28px;
+	font-size: 22px;
 	color: black;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
@@ -82,11 +68,27 @@ a {
 	background: none;
 }
 
+.post {
+	opacity: .9;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+
 #post {
-	width: 500px;
-	height: 190px;
+	border-radius: 28px;
+	width: 50%;
+	height: 125px;
+}
+
+#post-email {
+	vertical-align: bottom;
+}
+
+#post-pic {
+	float: left;
 }
 
 #post-title {
 	font-size: 20px;
+	float: left;
 }
