@@ -13,6 +13,8 @@ def shutdown_session(exception=None):
 def home():
 	return render_template('home.html')
 
+# test
+
 application.register_blueprint(categories.cat, session=session, g=g)
 application.register_blueprint(auth.auth, session=session, g=g)
 application.register_blueprint(posts.posts, session=session, g=g)

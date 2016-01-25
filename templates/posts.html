@@ -3,12 +3,20 @@
 <div class="posts">
 	{% for post in posts %}
 		<div class="post">
-		 	<button id="post" class="btn btn-default btn">
-			{% if post.images %}
-				<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100" id="post-pic">
-			{% endif %}
-		 	<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a><p id="post-email">Reply to: {{post.email}}</p>
-		 	{{post.body}}</button>
+			<div class="row">
+			 	<button id="post" class="btn btn-default btn">
+				<div class="col-xs-2">
+				{% if post.images %}
+					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100" id="post-pic">
+				{% endif %}
+				</div>
+			 	<div class="col-xs-5">	
+			 		<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a>
+			 	</div>
+			 	<div class="col-xs-5">
+			 		<p id="post-email">Reply to: {{post.email}}</p></button>
+			 	</div>
+			 </div>
 		 </div>
 	{% endfor %}
 </div> 	
