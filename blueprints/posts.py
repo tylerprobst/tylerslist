@@ -33,10 +33,15 @@ def create():
 		category_id = request.form.get('category_id')
 		email = request.form.get('email')
 		price = request.form.get('price')
+<<<<<<< HEAD
+=======
+		filename = 'None'
+>>>>>>> 1a870b2fbbf9c81b1156a1955206ed157f663942
 		token = bcrypt.gensalt()
 		if title and body and email and price:
 			post = Post.create(title=title, body=body, category_id=category_id, email=email, price=price, token=token)
 			for img_file in request.files.getlist('file[]'):
+<<<<<<< HEAD
 				filename = 'None'
 				if img_file:
 					filename = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(26)) + ".jpeg"
@@ -47,6 +52,17 @@ def create():
 						key.set_canned_acl('public-read')
 						image = Image.create(filename=filename, post_id=post.id)
 			link = 'http://tylerslist.elasticbeanstalk.com/edit/{1}?token={0}'.format(token, post.id)
+=======
+				if img_file:
+					filename = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(26)) + ".jpeg"
+				if filename:
+					# img_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+					key = bucket.new_key(filename)
+					key.set_contents_from_string(img_file.read())
+					key.set_canned_acl('public-read')
+					image = Image.create(filename=filename, post_id=post.id)
+			link = 'http://localhost:5000/edit/{1}?token={0}'.format(token, post.id)
+>>>>>>> 1a870b2fbbf9c81b1156a1955206ed157f663942
 			msg = Message('Edit post email', sender='tprobstcoding@gmail.com', recipients=[email])
 			msg.body = "Use this link to edit your post: " + link
 			mail.send(msg)

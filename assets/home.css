@@ -40,6 +40,18 @@ a {
 	padding-bottom: 10px;
 }
 
+#search button {
+	height: 50px;
+	width: 150px;
+	font-size:  
+}
+
+#search input {
+	height: 35px;
+	width: 425px;
+	font-size: 28px;
+}
+
 .main-logo {
 	float: right;
 }
