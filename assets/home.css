@@ -54,8 +54,17 @@ a {
 	color: black;
 }
 
+.images {
+	padding-left: 5px;
+	text-align: center;
+}
+
 .jumbotron {
 	opacity: .85;
+	padding-top: 100px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #nav-button {
@@ -71,7 +80,9 @@ a {
 .post {
 	opacity: .9;
 	padding-top: 5px;
-	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 5px;
 }
 
 #post {
@@ -84,6 +95,10 @@ a {
 	vertical-align: bottom;
 }
 
+.post-page {
+	border-radius: 28px; 
+}
+
 #post-pic {
 	float: left;
 }
@@ -92,3 +107,4 @@ a {
 	font-size: 20px;
 	float: left;
 }
+
