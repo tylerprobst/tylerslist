@@ -16,6 +16,6 @@ def home():
 application.register_blueprint(categories.cat, session=session, g=g)
 application.register_blueprint(auth.auth, session=session, g=g)
 application.register_blueprint(posts.posts, session=session, g=g)
-
+#Test
 if __name__ == '__main__':
 	application.run()
