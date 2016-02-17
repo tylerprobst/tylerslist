@@ -27,7 +27,7 @@ def category(catname):
 def search():
 		query = request.args.get('query')
 		posts = Post.querydb(query)
-		return render_template('search.html', posts=posts)
+		return render_template('posts.html', posts=posts)
 	 	
 
 
