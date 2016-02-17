@@ -44,4 +44,5 @@ class Post(db.Model):
 
 	@classmethod
 	def querydb(cls, query):
-		return db.session.query(cls).filter(cls.title.like(query))
+		query = '%{0}%'.format(query)
+		return db.session.query(cls).filter(cls.title.ilike(query))
