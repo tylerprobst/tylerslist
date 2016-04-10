@@ -6,3 +6,28 @@
 	{% endfor %}
 </div>
 {% endblock %}
+
+
+{% extends "layout.html" %}
+{% block body %}
+<div class="posts">
+	{% for category in categories %}
+		<div class="post">
+			<div class="row">
+			 	<button id="post" class="btn btn-default btn">
+				<div class="col-xs-2">
+				{% if post.images %}
+					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100" id="post-pic">
+				{% endif %}
+				</div>
+			 	<div class="col-xs-5">	
+			 		<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a>
+			 	</div>
+			 	<div class="col-xs-5">
+			 		<p id="post-email">Reply to: {{post.email}}</p></button>
+			 	</div>
+			 </div>
+		 </div>
+	{% endfor %}
+</div> 	
+{% endblock %}

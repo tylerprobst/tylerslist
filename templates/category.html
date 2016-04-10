@@ -1,15 +1,23 @@
 {% extends "layout.html" %}
 {% block body %}
-<h1>{{category.name}}</h1>
-<div class="btn-group-vertical" class="posts">
-{% for post in category.posts %}
-	<button id="post" class="btn btn-success btn">
-	{% if post.images %}
-		<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="150" width="150">
-	{% endif %}
- 	<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a>
- 	<p>Reply to: {{post.email}}</p></button>	
-{% endfor %}
-</div>
+<div class="posts">
+	{% for post in category.posts %}
+		<div class="post">
+			<div class="row">
+			 	<button id="post" class="btn btn-default btn">
+				<div class="col-xs-2">
+				{% if post.images %}
+					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100" id="post-pic">
+				{% endif %}
+				</div>
+			 	<div class="col-xs-5">	
+			 		<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a>
+			 	</div>
+			 	<div class="col-xs-5">
+			 		<p id="post-email">Reply to: {{post.email}}</p></button>
+			 	</div>
+			 </div>
+		 </div>
+	{% endfor %}
+</div> 	
 {% endblock %}
-
