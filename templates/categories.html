@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="categories">
-	{% for category in categories %}
-		<button id="category" type="button" class="btn btn-default"><a id="category" href="/categories/{{category.name}}">{{category.name}}</a></button>
+	<ul id="cd-gallery-items" class="cd-container">
+		{% for category in categories %}
+			<li>
+				<img src="/assets/smart-fixed-navigation/img/thumb.jpg" alt="Preview image">
+				<h2 class="catname"><a id="category" href="/categories/{{category.name}}">{{category.name}}</a></h2>
+			</li>
 	{% endfor %}
 </div>
 {% endblock %}

@@ -1,23 +1,22 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="posts">
-	{% for post in posts %}
-		<div class="post">
-			<div class="row">
-			 	<button id="post" class="btn btn-default btn">
-				<div class="col-xs-2">
-				{% if post.images %}
-					<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" height="100" width="100" id="post-pic">
-				{% endif %}
+
+	<ul id="cd-gallery-items" class="cd-container">
+		{% for post in posts %}	
+			<li>
+				<div class="icon">
+					{% if post.images %}
+						<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" class="image">
+						<!-- <img src="/assets/smart-fixed-navigation/img/thumb.jpg" alt="Preview image"> -->
+					{% endif %}
 				</div>
-			 	<div class="col-xs-5">	
-			 		<a id="post-title" href="/posts/{{post.id}}">{{post.title}}</a>
-			 	</div>
-			 	<div class="col-xs-5">
-			 		<p id="post-email">Reply to: {{post.email}}</p></button>
-			 	</div>
-			 </div>
-		 </div>
-	{% endfor %}
+				<div class="post-info">
+					<a href="/posts/{{post.id}}">{{post.title}}</a>
+					<p>&nbsp;</p>
+					<p>Reply to: {{post.email}}</p></button>
+				</div>
+			</li>
+		{% endfor %}
 </div> 	
 {% endblock %}

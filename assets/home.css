@@ -2,19 +2,48 @@ body {
 	background-image: url("/assets/tahoebackground.JPG");
 	background-repeat: no-repeat;
     background-attachment: fixed;
-	background-color: #cccccc;
 	background-size: cover;
-	min-width: 960px
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
-h1 {
-	font-family: "Comic Sans MS", cursive, sans-serif;
+h2 a {
+	color: purple;
+	margin-bottom: 2em;
+}
+
+ul#cd-gallery-items li {
+	background-color: #394d65;
 }
 
 #flash p {
 	font-size: 45px;
 	color: red;
-	text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,0px 1px 0 #000,0px -1px 0 #000,-1px 0px 0 #000,1px 0px 0 #000,2px 2px 0 #000,-2px 2px 0 #000,2px -2px 0 #000,-2px -2px 0 #000,0px 2px 0 #000,0px -2px 0 #000,-2px 0px 0 #000,2px 0px 0 #000,1px 2px 0 #000,-1px 2px 0 #000,1px -2px 0 #000,-1px -2px 0 #000,2px 1px 0 #000,-2px 1px 0 #000,2px -1px 0 #000,-2px -1px 0 #000;
+	text-shadow: 1px 1px 0 #000,
+				-1px 1px 0 #000,
+				1px -1px 0 #000,
+				-1px -1px 0 #000,
+				0px 1px 0 #000,
+				0px -1px 0 #000,
+				-1px 0px 0 #000,
+				1px 0px 0 #000,
+				2px 2px 0 #000,
+				-2px 2px 0 #000,
+				2px -2px 0 #000,
+				-2px -2px 0 #000,
+				0px 2px 0 #000,
+				0px -2px 0 #000,
+				-2px 0px 0 #000,
+				2px 0px 0 #000,
+				1px 2px 0 #000,
+				-1px 2px 0 #000,
+				1px -2px 0 #000,
+				-1px -2px 0 #000,
+				2px 1px 0 #000,
+				-2px 1px 0 #000,
+				2px -1px 0 #000,
+				-2px -1px 0 #000;
 	padding-top: 100px;
 	padding-left: 100px;
 	padding-bottom: 0px;
@@ -22,101 +51,27 @@ h1 {
 	width: 1000px;
 }
 
-a { 
-	padding: 40px;
-	text-decoration: underline;
-} 
-
-
-#category a {
-	color: black; 	
-	font-size: 30px;
-	font-family: "Comic Sans MS", cursive, sans-serif;
+.catname {
+	padding-bottom: 1em;
 }
 
-#category button {
-	float: left;
-	padding-top: 10px;
-	padding-bottom: 10px;
+.image {
+  display: block;
+  max-width: 230px;
+  max-height: 195px;
+  width: auto;
+  height: auto;
+  margin: auto;
 }
 
-#search button {
-	height: 50px;
-	width: 150px;
-	font-size:  
+.icon {
+	background-image: url('/assets/smart-fixed-navigation/img/thumb.jpg');
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-size: cover;
+	padding: 1em;
 }
 
-#search input {
-	height: 35px;
-	width: 425px;
-	font-size: 28px;
+.post-info {
+	padding: 1em;
 }
-
-.main-logo {
-	float: right;
-}
-.search {
-	padding-right: 800px;
-	padding-left: 20px;
-}
-
-.categories {
-	text-align: center;
-	font-size: 25px;
-	color: black;
-}
-
-.images {
-	padding-left: 5px;
-	text-align: center;
-}
-
-.jumbotron {
-	opacity: .85;
-	padding-top: 100px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-#nav-button {
-	font-size: 22px;
-	color: black;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
-#navbar {
-	background: none;
-}
-
-.post {
-	opacity: .9;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 20px;
-	padding-right: 5px;
-}
-
-#post {
-	border-radius: 28px;
-	width: 50%;
-	height: 125px;
-}
-
-#post-email {
-	vertical-align: bottom;
-}
-
-.post-page {
-	border-radius: 28px; 
-}
-
-#post-pic {
-	float: left;
-}
-
-#post-title {
-	font-size: 20px;
-	float: left;
-}
-

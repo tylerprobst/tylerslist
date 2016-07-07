@@ -1,39 +1,55 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="/assets/home.css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css">
+	<script type="text/javascript" src="/assets/smart-fixed-navigation/js/modernizr.js"></script>
+    
     <script type="text/javascript" src="/assets/main.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
- 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/assets/smart-fixed-navigation/css/reset.css"/>
+    <link rel="stylesheet" href="/assets/smart-fixed-navigation/css/style.css"/>
+    <link rel="stylesheet" href="/assets/home.css"/>
   </head>
-		<body>	
-			{% with messages = get_flashed_messages() %}
-			{% for message in messages %}
-				<p id="flash">{{message}}</p>
-			{% endfor %}
-				<nav id="navbar">
-					<a href="/"><img src="/assets/Craiglist_Logo.png"></a>
-			    	<div>
-						<ul class="nav nav-pills">
-		  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/categories">Categories</a></li>
-		  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/posts">Posts</a></li>
-		  					<li role="presentation" class="btn btn-large"><a id="nav-button" href="/create">Create Post</a></li> 
-						</ul>
-			    	</div>
-			    	<div class="search">
-						<form action="/search" method="GET">
-							<div class="input-group">
-	      						<input name="query" type="text" class="form-control" placeholder="Search for...">
-	      						<span class="input-group-btn">
-	        					<button class="btn btn-default" type="submit">Search!</button>
-	      						</span>
-	      					</div>
-						</form>
-					</div>
+		<body>
+			<header>
+				<div id="cd-logo"></div>
+				<h1><a href="/"><img src="/assets/Craiglist_Logo.png" alt="Logo"></a></h1>
+			</header>
+
+			<div id="cd-nav">
+				<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+
+				<nav id="cd-main-nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/categories">Categories</a></li>
+						<li><a class="nav-link" href="/posts">Posts</a></li>
+						<li><a class="nav-link" href="/create">Create Post</a></li>
+						<li><a class="nav-link" href="http://tylerprobst.github.io" target="_blank">Contact</a></li>
+						<li>
+							<form role="form" action="/search?" class="form-inline">
+								<div class="form-group">
+									<input name="query" class="form-control col-sm-12" type="text" placeholder="Search">
+									<button class="btn btn-success-outline" type="submit">Search</button>
+								</div>
+							</form>
+						</li>
+					</ul>
 				</nav>
-			{% block body %}{% endblock %}
-			{% endwith %}
-		</body>
-	</div>
+			</div>
+			<main>
+				{% block body %}{% endblock %}	
+			</main>
+			{% with messages = get_flashed_messages() %}
+				{% for message in messages %}
+					<p id="flash">{{message}}</p>
+				{% endfor %}
+				{% endwith %}
+		<script   src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="/assets/smart-fixed-navigation/js/main.js"></script>
+	</body>
 </html>
