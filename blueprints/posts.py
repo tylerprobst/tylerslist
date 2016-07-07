@@ -1,5 +1,3 @@
-#HW: read docs on sqlalchemy query object for the search function!(try to figure out searching algorithm manually)
-
 from flask import Flask, Blueprint, request, session, send_from_directory, render_template, flash, redirect
 from models import *
 import bcrypt

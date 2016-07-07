@@ -11,11 +11,16 @@ def shutdown_session(exception=None):
 
 @application.route('/')
 def home():
-	return render_template('home.html')
+	return render_template('categories.html', categories=Category.query.all())
 
-application.register_blueprint(categories.cat, session=session, g=g)
-application.register_blueprint(auth.auth, session=session, g=g)
+@application.route('/search')
+def search():
+	query = request.args.get('query')
+	posts = Post.querydb(query)
+	return render_template('posts.html', posts=posts)
+
+
 application.register_blueprint(posts.posts, session=session, g=g)
-#Test
+
 if __name__ == '__main__':
 	application.run()

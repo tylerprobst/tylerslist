@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="jumbotron post-page">
-	<h1>{{post.title}} -- ${{post.price}}</h1>
+<div class="jumbotron post cd-container">
+	<h2>{{post.title}} - ${{post.price}}</h2>
+	<br>
 	<h5>Reply to: {{post.email}}</h5>
+	<hr>
 	<p>{{post.body}}</p>
 	<div class="images">
 		{% for image in images %}

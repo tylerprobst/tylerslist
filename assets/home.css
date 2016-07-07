@@ -8,6 +8,17 @@ body {
 	margin: 0;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+h2 {
+	font-size: 2em;
+}
+
 h2 a {
 	color: purple;
 	margin-bottom: 2em;
@@ -53,6 +64,7 @@ ul#cd-gallery-items li {
 
 .catname {
 	padding-bottom: 1em;
+	text-align: center;
 }
 
 .image {
@@ -64,6 +76,15 @@ ul#cd-gallery-items li {
   margin: auto;
 }
 
+.post-image {
+	display: block;
+  	max-width: 430px;
+  	max-height: 495px;
+  	width: auto;
+  	height: auto;
+  	margin: auto;	
+}
+
 .icon {
 	background-image: url('/assets/smart-fixed-navigation/img/thumb.jpg');
 	background-repeat: no-repeat;
@@ -73,4 +94,8 @@ ul#cd-gallery-items li {
 
 .post-info {
 	padding: 1em;
+}
+
+.post {
+	margin: 0 auto;
 }
