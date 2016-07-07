@@ -67,7 +67,6 @@ ul#cd-gallery-items li {
 .icon {
 	background-image: url('/assets/smart-fixed-navigation/img/thumb.jpg');
 	background-repeat: no-repeat;
-    background-attachment: fixed;
 	background-size: cover;
 	padding: 1em;
 }
