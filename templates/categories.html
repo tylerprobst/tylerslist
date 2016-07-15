@@ -3,9 +3,13 @@
 <div class="categories">
 	<ul id="cd-gallery-items" class="cd-container">
 		{% for category in categories %}
-			<li>
-				<img src="/assets/smart-fixed-navigation/img/thumb.jpg" alt="Preview image">
-				<h2 class="catname"><a id="category" href="/categories/{{category.name}}">{{category.name}}</a></h2>
+			<li class="category-wrapper">
+				<a id="category" href="/categories/{{category.id}}">
+					{% if category.img_file %}
+						<img src="{{category.img_file}}" class="category-image">
+					{% endif %}
+					<h2 class="catname">{{category.name}}</h2>
+				</a>
 			</li>
 	{% endfor %}
 </div>

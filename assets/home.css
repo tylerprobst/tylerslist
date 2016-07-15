@@ -1,5 +1,5 @@
 body {
-	background-image: url("/assets/tahoebackground.JPG");
+	background-image: url("/assets/categoryPics/tahoebackground.JPG");
 	background-repeat: no-repeat;
     background-attachment: fixed;
 	background-size: cover;
@@ -65,6 +65,27 @@ ul#cd-gallery-items li {
 .catname {
 	padding-bottom: 1em;
 	text-align: center;
+}
+
+.category-wrapper {
+	position: relative;
+	background-image: url('/assets/smart-fixed-navigation/img/thumb.jpg');
+	max-width: 300px;
+	font-size: .8em;
+}
+
+.category-wrapper:hover {
+	top: -15px;
+	left: 10px;
+	-ms-transform: rotate(6deg); /* IE 9 */
+    -webkit-transform: rotate(6deg); /* Chrome, Safari, Opera */
+    transform: rotate(6deg);
+}
+
+.category-image {
+	padding: 1em;
+	max-height: 173px;
+	border-radius: 20px;
 }
 
 .image {

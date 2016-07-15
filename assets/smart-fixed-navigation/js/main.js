@@ -23,6 +23,7 @@ jQuery(document).ready(function($){
 		if( $(window).scrollTop() > offset && !navigationContainer.hasClass('is-fixed')) {
 			navigationContainer.addClass('is-fixed').find('.cd-nav-trigger').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
 				mainNavigation.addClass('has-transitions');
+				$('#searchform').css({display:'none'});
 			});
 		} else if ($(window).scrollTop() <= offset) {
 			//check if the menu is open when scrolling up
@@ -43,6 +44,7 @@ jQuery(document).ready(function($){
 			} else {
 				navigationContainer.removeClass('is-fixed');
 				mainNavigation.removeClass('has-transitions');
+				$('#searchform').css({display:'inline-block'});
 			}
 		} 
 	}

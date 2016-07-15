@@ -1,52 +1,54 @@
 from db import db
 from categories import *
 
-CONST_CATEGORIES = [{name: 'Cars and Trucks',
-					 img: 'add image filename for cat here' 
-					} 
+PATH_TO_CAT_PIC = '/assets/categoryPics/'
+
+CONST_CATEGORIES = [{'name': 'Cars and Trucks',
+					 'img': PATH_TO_CAT_PIC + 'carsTrucks.JPG'
+					}, 
 					
-					{name: 'Auto Parts',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Auto Parts',
+					 'img': PATH_TO_CAT_PIC + 'auto-parts.JPG'
+					}, 
 					
-					{name: 'Computers',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Computers',
+					 'img': PATH_TO_CAT_PIC + 'computers.JPG'
+					}, 
 					
-					{name: 'Electronics',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Electronics',
+					 'img': PATH_TO_CAT_PIC + 'electronics.JPG'
+					}, 
 					
-					{name: 'Video Games',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Video Games',
+					 'img': PATH_TO_CAT_PIC + 'videogames.JPG'
+					}, 
 					
-					{name: 'Camping and Outdoors',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Camping and Outdoors',
+					 'img': PATH_TO_CAT_PIC + 'camping.JPG'
+					}, 
 					
-					{name: 'Bicycles',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Bicycles',
+					 'img': PATH_TO_CAT_PIC + 'bicycle.JPG'
+					}, 
 					
-					{name: 'Sports Equipment',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Sports Equipment',
+					 'img': PATH_TO_CAT_PIC + 'sportsEquipment.JPG'
+					}, 
 					
-					{name: 'Animals',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Animals',
+					 'img': PATH_TO_CAT_PIC + 'animals.JPG'
+					}, 
 					
-					{name: 'Household Items',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Household Items',
+					 'img': PATH_TO_CAT_PIC + 'householditems.JPG'
+					}, 
 					
-					{name: 'Motorcycles',
-					 img: 'add image filename for cat here'
-					} 
+					{'name': 'Motorcycles',
+					 'img': PATH_TO_CAT_PIC + 'motorcycle.JPG'
+					}, 
 					
-					{name: 'Pizza',
-					  img: 'add image filename for cat here'
+					{'name': 'Pizza',
+					 'img': PATH_TO_CAT_PIC + 'pizza.JPG'
 					}]
 
 for cat in Category.query.all():
@@ -56,5 +58,5 @@ db.session.commit()
 for obj in CONST_CATEGORIES:
 	name = obj['name']
 	img = obj['img']
-	db.session.add(Category(name=name, img=img))
+	db.session.add(Category(name=name, img_file=img))
 db.session.commit()
