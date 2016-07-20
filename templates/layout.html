@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/assets/main.js"></script>
     <link rel="stylesheet" href="/assets/smart-fixed-navigation/css/reset.css"/>
     <link rel="stylesheet" href="/assets/smart-fixed-navigation/css/style.css"/>
+	<link href="/assets/hover-min.css" rel="stylesheet" media="all">    
     <link rel="stylesheet" href="/assets/home.css"/>
   </head>
 		<body>
@@ -19,6 +20,14 @@
 				<div id="cd-logo"><a href="/"><img src="/assets/Craiglist_Logo.png" alt="Logo"></a></div>
 				<h1></h1>
 			</header>
+
+			{% with messages = get_flashed_messages() %}
+				{% for message in messages %}
+					<div class="alert alert-info">
+  						<strong>{{message}}</strong>
+					</div>
+				{% endfor %}
+			{% endwith %}
 
 			<div id="cd-nav">
 				<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
@@ -43,12 +52,6 @@
 			<main>
 				{% block body %}{% endblock %}	
 			</main>
-			{% with messages = get_flashed_messages() %}
-				{% for message in messages %}
-					<p id="flash">{{message}}</p>
-				{% endfor %}
-				{% endwith %}
-		
 		<script type="text/javascript" src="/assets/smart-fixed-navigation/js/main.js"></script>
 	</body>
 </html>

@@ -16,7 +16,12 @@ posts = Blueprint('posts', __name__)
 @posts.route('/posts', methods=['GET', 'POST'])
 def index():
 	if request.method == 'GET':
-		return render_template('posts.html', posts=Post.query.all())
+		cat = request.args.get('category')
+		if cat:
+			posts = Category.query.filter(Category.id==cat).first().posts
+		else:
+			posts = Post.query.all()
+		return render_template('posts.html', posts=posts)
 	elif request.method == 'POST':
 		pass
 
@@ -24,7 +29,7 @@ def index():
 @posts.route('/create', methods=['GET', 'POST'])
 def create():
 	if request.method == 'GET':
-		return render_template('create.html', categories=Category.query.all())
+		return render_template('create.html', categories=Category.query.order_by(Category.name).all())
 	elif request.method == 'POST':
 		title = request.form.get('title')
 		body = request.form.get('body')
@@ -45,8 +50,8 @@ def create():
 						key.set_canned_acl('public-read')
 						image = Image.create(filename=filename, post_id=post.id)
 			link = 'http://tylerslist.elasticbeanstalk.com/edit/{1}?token={0}'.format(token, post.id)
-			msg = Message('Edit post email', sender='tprobstcoding@gmail.com', recipients=[email])
-			msg.body = "Use this link to edit your post: " + link
+			msg = Message('Edit post email - DO NOT DELETE', sender=app.config['MAIL_DEFAULT_SENDER'], recipients=[email])
+			msg.html = "Thank you for posting with Tyler'sList, we hope your experience with our platform was enjoyable and painless.<br>" + " Use this link to edit your post: " + link
 			mail.send(msg)
 			flash('Post was successfully created, please check your email for an editing link.')
 			return redirect('/')

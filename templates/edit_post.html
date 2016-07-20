@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends "layout.html" %}
 {% block body %}
 <form action="/edit/{{post.id}}" method="POST" enctype="multipart/form-data">
@@ -10,10 +9,10 @@
 	<textarea name="body" rows="10" cols="150">{{post.body}}</textarea>
 	<input name="img_file" type="file">
 	<input name="post_id" type="hidden" value="{{post_id}}">
-	<p><button type="submit">Submit Post</button><p/>
+	<p><button class="btn btn-primary" type="submit">Submit Post</button><p/>
 </form>
 <form action="/post/delete/{{post.id}}">
 	<input name="post_id" type="hidden" value"{{post.id}}">
-	<p><button type="submit">DELETE POST</button></p>
+	<p><button class="btn btn-danger" type="submit">DELETE POST</button></p>
 </form>
 {% endblock %}

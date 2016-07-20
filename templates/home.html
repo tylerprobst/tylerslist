@@ -3,8 +3,8 @@
 <div class="categories">
 	<ul id="cd-gallery-items" class="cd-container">
 		{% for category in categories %}
-			<li class="category-wrapper">
-				<a id="category" href="/categories/{{category.id}}">
+			<li class="category-wrapper hvr-buzz-out">
+				<a id="category" href="/posts?category={{category.id}}">
 					{% if category.img_file %}
 						<img src="{{category.img_file}}" class="category-image">
 					{% endif %}

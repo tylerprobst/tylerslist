@@ -1,22 +1,38 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="posts">
 
-	<ul id="cd-gallery-items" class="cd-container">
-		{% for post in posts %}	
-			<li>
-				<div class="icon">
-					{% if post.images %}
-						<img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" class="image">
-						<!-- <img src="/assets/smart-fixed-navigation/img/thumb.jpg" alt="Preview image"> -->
-					{% endif %}
-				</div>
-				<div class="post-info">
-					<a href="/posts/{{post.id}}">{{post.title}}</a>
-					<p>&nbsp;</p>
-					<p>Reply to: {{post.email}}</p></button>
-				</div>
-			</li>
-		{% endfor %}
-</div> 	
+{% if posts %}	
+	<div class="posts">
+		<div class="table-responsive">
+	  		<table class="table">
+			    <tr>
+			    	<th>Post Image</th>
+			    	<th>Post Title</th>
+			    	<th>Post Description</th>
+			    	<th>Reply Email</th>
+			    </tr>
+			    {% for post in posts %}
+				    <tr>
+				    	{% if post.images %}
+				    		<th><img src="{{config['S3_BUCKET_LINK']}}{{post.images[0].filename}}" class="posts-image"></th>
+				    	{% else %}
+				    		<th>No Images</th>
+				    	{% endif %}
+				    	<th><a href="/posts/{{post.id}}">{{post.title}}</a></th>
+				    	<th class="posts-post-body">{{post.body}}</th>
+				    	<th>Reply to: {{post.email}}</th>
+				    </tr>
+			    {% endfor %}
+			</table>
+		</div>
+	</div> 	
+{% else %}
+<div class="message-to-user">
+	<h2>No posts have been created in this category yet. We would be honored if you posted with us.</h2>
+	<button class="btn btn-success"><a href="/create">Create a new Post Now!</a></button>
+</div>
+{% endif %}
+	  
+	
+
 {% endblock %}

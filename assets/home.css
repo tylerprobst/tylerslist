@@ -74,14 +74,6 @@ ul#cd-gallery-items li {
 	font-size: .8em;
 }
 
-.category-wrapper:hover {
-	top: -15px;
-	left: 10px;
-	-ms-transform: rotate(6deg); /* IE 9 */
-    -webkit-transform: rotate(6deg); /* Chrome, Safari, Opera */
-    transform: rotate(6deg);
-}
-
 .category-image {
 	padding: 1em;
 	max-height: 173px;
@@ -97,13 +89,14 @@ ul#cd-gallery-items li {
   margin: auto;
 }
 
-.post-image {
+.posts-image {
 	display: block;
-  	max-width: 430px;
-  	max-height: 495px;
+  	max-width: 230px;
+  	max-height: 195px;
   	width: auto;
   	height: auto;
-  	margin: auto;	
+  	border: 3px solid black;
+  	border-radius: 10px;
 }
 
 .icon {
@@ -113,10 +106,34 @@ ul#cd-gallery-items li {
 	padding: 1em;
 }
 
+.message-to-user {
+	background-color: white;
+	margin: 5em;
+	padding: 1em;
+}
+
+.message-to-user button {
+	display: block;
+	margin: 1em;
+	text-align: center;
+}
+
 .post-info {
 	padding: 1em;
 }
 
 .post {
 	margin: 0 auto;
+}
+
+.posts {
+	background-color: white;
+	margin: auto;
+	margin-left: 1em;
+	margin-right: 1em;
+	border-radius: 10px;
+}
+
+.posts-post-body {
+	max-width: 40em;
 }
