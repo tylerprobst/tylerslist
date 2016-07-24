@@ -1,18 +1,30 @@
 {% extends "layout.html" %}
 {% block body %}
-<form action="/edit/{{post.id}}" method="POST" enctype="multipart/form-data">
-	Email address: <textarea name="email" rows="1" cols="30" readonly="readonly">{{post.email}}</textarea>	
-	<p>Category: {{category_name}}</p>
-	<textarea name="title" rows="1" cols="50" autofocus=autofocus>{{post.title}}</textarea>
-	<textarea name="price" rows ="1" cols="18">{{post.price}}</textarea>
-	<br><br>
-	<textarea name="body" rows="10" cols="150">{{post.body}}</textarea>
-	<input name="img_file" type="file">
-	<input name="post_id" type="hidden" value="{{post_id}}">
-	<p><button class="btn btn-primary" type="submit">Submit Post</button><p/>
-</form>
-<form action="/post/delete/{{post.id}}">
-	<input name="post_id" type="hidden" value"{{post.id}}">
-	<p><button class="btn btn-danger" type="submit">DELETE POST</button></p>
-</form>
+<div class="create-post">
+	<h1>Edit Post</h1>
+	<form action="/edit/{{post.id}}" method="POST" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="emailInput">Email address:</label>
+			<input id="emailInput" class="form-control" name="email" type="text" value="{{post.email}}" autofocus=autofocus/>	
+		</div>
+    	<div class="form-group">
+    		<label for="titleText">Title:</label>
+			<textarea class="form-control" name="title" id="titleText" placeholder="Please enter the title of your post here.">{{post.title}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="priceText">Price:</label>
+			<textarea id="priceText" class="form-control" name="price" placeholder="Enter Price" rows ="1" cols="18">{{post.price}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="bodyText">Body:</label>
+			<textarea id="bodyText" class="form-control" name="body" placeholder="Please enter the body of your post here." rows="10">{{post.body}}</textarea>
+		</div>
+		<button type="submit" class="btn btn-success form-btn">Submit Post</button>
+		<input name="post_id" type="hidden" value="{{post_id}}">
+	</form>
+	<form action="/post/delete/{{post.id}}">
+		<input name="post_id" type="hidden" value"{{post.id}}">
+		<p><button class="btn btn-danger form-btn" type="submit">DELETE POST</button></p>
+	</form>
+</div>
 {% endblock %}

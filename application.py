@@ -18,8 +18,9 @@ def home():
 @application.route('/search')
 def search():
 	query = request.args.get('query')
-	posts = Post.querydb(query)
-	return render_template('posts.html', posts=posts)
+	posts = Post.querydb(query) 
+	categories = Category.query.order_by(Category.name).all()
+	return render_template('posts.html', posts=posts, categories=categories)
 
 
 application.register_blueprint(posts.posts, session=session, g=g)

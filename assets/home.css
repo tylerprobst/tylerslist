@@ -15,13 +15,17 @@ hr {
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-h2 {
+h1, h2 {
 	font-size: 2em;
 }
 
 h2 a {
 	color: purple;
 	margin-bottom: 2em;
+}
+
+header {
+	margin-bottom: -5em;
 }
 
 ul#cd-gallery-items li {
@@ -80,6 +84,40 @@ ul#cd-gallery-items li {
 	border-radius: 20px;
 }
 
+.create-post {
+	width: 90%;
+  	max-width: 750px;
+	margin:	auto;
+	padding: auto;
+    background-color: #e1e1e1;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+.create-post h1 {
+	text-align: center;
+}
+
+.create-post textarea {
+	resize: none;
+}
+
+.create-post label {
+	margin-bottom: .5em;
+}
+
+.dz-message {
+    margin: 1em;
+    text-align: center;
+    border-style: dashed;
+    border-width: 0.25em;
+    padding: 5em;
+}
+
+.form-btn {
+	margin: .5em;
+}
+
 .image {
   display: block;
   max-width: 230px;
@@ -106,6 +144,7 @@ ul#cd-gallery-items li {
 	padding: 1em;
 }
 
+
 .message-to-user {
 	background-color: white;
 	margin: 5em;
@@ -116,6 +155,10 @@ ul#cd-gallery-items li {
 	display: block;
 	margin: 1em;
 	text-align: center;
+}
+
+.message-to-user a {
+
 }
 
 .post-info {

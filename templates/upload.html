@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block head %}
+	<script type="text/javascript" src="/assets/dropzone.js"></script>
+	<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+{% endblock %}
+{% block body %}
+<div class="create-post">
+	<h1>Upload Images</h1>
+	<br>
+	<form action="/create/upload/{{post_id}}" method="POST" enctype="multipart/form-data" class="dropzone"></form>
+	<form action="/create/mail/{{post_id}}" method="POST" enctype="multipart/form-data" id="upload-form">
+		<button type="submit" class="btn btn-success form-btn">Submit Post</button>
+	</form>
+</div>
+{% endblock %}
