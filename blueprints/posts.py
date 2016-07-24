@@ -31,7 +31,8 @@ def index():
 @posts.route('/create', methods=['GET', 'POST'])
 def create():
 	if request.method == 'GET':
-		return render_template('create.html', categories=Category.query.order_by(Category.name).all())
+		# return render_template('create.html', categories=Category.query.order_by(Category.name).all())
+		return render_template('create.html', categories=Category.query.all())
 	elif request.method == 'POST':
 		title = request.form.get('title')
 		body = request.form.get('body')
