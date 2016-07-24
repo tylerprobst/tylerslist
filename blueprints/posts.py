@@ -67,7 +67,7 @@ def mailer(post_id):
 		pass
 	if request.method == 'POST':
 		post = Post.query.filter(Post.id == post_id).first()
-		link = 'http://localhost:5000/edit/{1}?token={0}'.format(post.token, post.id)
+		link = 'http://{2}/edit/{1}?token={0}'.format(post.token, post.id, app.config['URL'])
 		msg = Message('Edit post email - DO NOT DELETE', sender=app.config['MAIL_DEFAULT_SENDER'], recipients=[post.email])
 		msg.html = "Thank you for posting with Tyler'sList, we hope your experience with our platform was enjoyable and painless.<br>" + " Use this link to edit your post: " + link
 		mail.send(msg)
