@@ -4,7 +4,7 @@ class Post(db.Model):
 	__tablename__= 'posts'
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(255), index=True, nullable=False)
-	body = db.Column(db.Text, index=True, nullable=False)
+	body = db.Column(db.Text(length=10000), index=True, nullable=False)
 	price = db.Column(db.Integer, nullable=False)
 	category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 	email = db.Column(db.String(255), nullable=False)

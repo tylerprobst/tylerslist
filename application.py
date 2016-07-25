@@ -2,13 +2,8 @@ from flask import Flask, render_template, Blueprint, session, g, request
 from models import *
 from blueprints import *
 
-from flask.ext.heroku import Heroku
-
 application = Flask(__name__)
 application.config.from_object('config')
-
-heroku = Heroku(application)
-
 
 @application.teardown_appcontext
 def shutdown_session(exception=None):

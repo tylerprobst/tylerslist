@@ -180,3 +180,8 @@ ul#cd-gallery-items li {
 .posts-post-body {
 	max-width: 40em;
 }
+
+.thumbnail {
+    height: 100px;
+    margin: 10px;    
+}

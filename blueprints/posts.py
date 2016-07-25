@@ -42,38 +42,24 @@ def create():
 		token = bcrypt.gensalt()
 		if title and body and email and price:
 			post = Post.create(title=title, body=body, category_id=category_id, email=email, price=price, token=token)
-			return redirect('/create/upload/{0}'.format(post.id))
+			print request.files.getlist('file[]')
+			for img_file in request.files.getlist('file[]'):
+				if img_file:	
+					filename = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(26)) + ".jpeg"
+					if filename:
+						key = bucket.new_key(filename)
+						key.set_contents_from_string(img_file.read())
+						key.set_canned_acl('public-read')
+						image = Image.create(filename=filename, post_id=post.id)
+			link = 'http://{2}/edit/{1}?token={0}'.format(post.token, post.id, app.config['URL'])
+			msg = Message("Tyler'sList Edit Post - DO NOT DELETE", sender=app.config['MAIL_DEFAULT_SENDER'], recipients=[post.email])
+			msg.html = "Thank you for posting with Tyler'sList, we hope your experience with our platform was enjoyable and painless.<br>" + " Use this link to edit your post: " + link
+			mail.send(msg)
+			flash('Post was successfully created, please check your email for an editing link.')
+			return redirect('/')
 		else:
 			flash('please fill out the required fields')
-			return render_template('create.html')
-
-@posts.route('/create/upload/<path:post_id>', methods=['GET','POST'])
-def imgUpload(post_id):
-	if request.method == 'GET':
-		return render_template('upload.html', post_id=post_id)
-	if request.method == 'POST':
-		for img_file in request.files.getlist('file'):
-			if img_file:	
-				filename = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(26)) + ".jpeg"
-				if filename:
-					key = bucket.new_key(filename)
-					key.set_contents_from_string(img_file.read())
-					key.set_canned_acl('public-read')
-					image = Image.create(filename=filename, post_id=post_id)		
-		return 'Success!'
-
-@posts.route('/create/mail/<path:post_id>', methods=['GET', 'POST'])
-def mailer(post_id):
-	if request.method == 'GET':
-		pass
-	if request.method == 'POST':
-		post = Post.query.filter(Post.id == post_id).first()
-		link = 'http://{2}/edit/{1}?token={0}'.format(post.token, post.id, app.config['URL'])
-		msg = Message('Edit post email - DO NOT DELETE', sender=app.config['MAIL_DEFAULT_SENDER'], recipients=[post.email])
-		msg.html = "Thank you for posting with Tyler'sList, we hope your experience with our platform was enjoyable and painless.<br>" + " Use this link to edit your post: " + link
-		mail.send(msg)
-		flash('Post was successfully created, please check your email for an editing link.')
-		return redirect('/')
+			return render_template('create.html', title=title, body=body, email=email, price=price)
 
 @posts.route('/post/delete/<path:post_id>')
 def delete(post_id):
