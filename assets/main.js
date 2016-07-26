@@ -1,13 +1,10 @@
 $(document).ready(function () { 
-	$('form#create').on('change', 'input[type="file"]', function (){
-		$('div#photo-upload').append('<p><input name="file[]" type="file" multiple></p>');
-	})	
-
 	var upload = $('#upload-photos');
 	upload.click(function() {
-		var area = $('#upload-area');
+		upload.off()
+		var area = $('#upload-photos');
 
-		area.append('<label for="files">Select multiple files: </label><input id="files" name="file[]" type="file" multiple/> <output id="result" />');
+		area.append('<div id="upload-area"><label for="files">Select multiple files: </label><input id="files" name="file[]" type="file" multiple/> <output id="result" /></div>');
 	    //Check File API support
 	    if(window.File && window.FileList && window.FileReader)
 	    {

@@ -39,9 +39,13 @@
 						<li><a class="nav-link" href="http://tylerprobst.github.io" target="_blank">Contact</a></li>
 						<li id="searchform">
 							<form role="form" action="/search?" class="form-inline">
-								<div class="form-group">
-									<input name="query" class="form-control col-sm-12" type="text" placeholder="Search">
-									<button class="btn btn-success-outline" type="submit">Search</button>
+								<div class="form-group row">
+									<div class="col-xs-6">
+										<input name="query" id="search-input" class="form-control col-sm-12" type="text" placeholder="Search">
+									</div>
+									<div class="col-xs-6" id="search-button-wrap">
+										<button class="btn btn-success-outline" type="submit">Search</button>
+									</div>
 								</div>
 							</form>
 						</li>
