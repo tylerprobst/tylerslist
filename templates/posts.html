@@ -37,8 +37,8 @@
 				    	{% else %}
 				    		<th>No Images</th>
 				    	{% endif %}
-				    	<th class="posts-post-title"><a href="/posts/{{post.id}}">{{post.title}}</a></th>
-				    	<th class="posts-post-body">{{post.body}}</th>
+				    	<th class="truncate posts-post-title"><a href="/posts/{{post.id}}">{{post.title}}</a></th>
+				    	<th class="truncate posts-post-body">{{post.body}}</th>
 				    	<th>Reply to: {{post.email}}</th>
 				    </tr>
 			    {% endfor %}

@@ -211,3 +211,10 @@ ul#cd-gallery-items li {
     height: 100px;
     margin: 10px;    
 }
+
+.truncate {
+width: 250px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
