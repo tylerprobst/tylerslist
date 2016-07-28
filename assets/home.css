@@ -119,12 +119,22 @@ ul#cd-gallery-items li {
 	margin-bottom: .5em;
 }
 
+#create-submit {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
 #upload-area {
     margin: 1em;
     text-align: center;
     border-style: dashed;
     border-width: 0.25em;
     padding: 5em;
+}
+
+#upload-photos {
+	width: 100%;
 }
 
 .form-btn {
@@ -217,4 +227,55 @@ width: 250px;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
+}
+
+#tylers {
+	color:red;
+	font-size: 7em;
+	font-family: 'Indie Flower', cursive;
+}
+
+#list {
+	color: purple;
+	font-size: 7em;
+	font-family: 'Indie Flower', cursive;
+}
+
+
+@media (max-width: 950px) {
+	#tylers, #list {
+		font-size: 6em;
+	}	
+
+	#cd-logo {
+		margin: 1em;
+	}
+
+	header {
+		margin-bottom: 1em;
+	}
+}
+
+@media (max-width: 600px) {
+
+	input#files {
+		left: -2em;
+	    position: relative;
+	}
+
+	#upload-photos, #create-submit {
+		width: 100%;
+	}
+
+	header {
+		margin-bottom: 1em;
+	}
+
+	#tylers, #list {
+		font-size: 4em;
+	}	
+
+	#cd-logo {
+		margin: 1em;
+	}
 }
