@@ -32,6 +32,10 @@ main {
 	margin-bottom: 5em; 
 }
 
+table {
+	max-width: 90vw;
+}
+
 ul#cd-gallery-items li {
 	background-color: #394d65;
 }
@@ -125,6 +129,10 @@ ul#cd-gallery-items li {
 	margin-right: 0;
 }
 
+#cd-logo {
+	margin-top: 2em;
+}
+
 #upload-area {
     margin: 1em;
     text-align: center;
@@ -152,7 +160,7 @@ ul#cd-gallery-items li {
 
 .posts-image {
 	display: block;
-  	max-width: 230px;
+  	max-width: 25vw;
   	max-height: 195px;
   	width: auto;
   	height: auto;
@@ -198,6 +206,7 @@ ul#cd-gallery-items li {
 	margin-left: 1em;
 	margin-right: 1em;
 	border-radius: 10px;
+	max-width: 90vw;
 }
 
 .posts-post-body {
@@ -241,6 +250,12 @@ text-overflow: ellipsis;
 	font-family: 'Indie Flower', cursive;
 }
 
+@media (max-width: 1169px) {
+
+	header {	
+		margin-bottom: 1em;
+	}
+}
 
 @media (max-width: 950px) {
 	#tylers, #list {
@@ -277,5 +292,9 @@ text-overflow: ellipsis;
 
 	#cd-logo {
 		margin: 1em;
+	}
+
+	.mobile-no {
+		display: none;
 	}
 }

@@ -27,8 +27,8 @@
 			    <tr>
 			    	<th>Post Image</th>
 			    	<th>Post Title</th>
-			    	<th>Post Description</th>
-			    	<th>Reply Email</th>
+			    	<th class="mobile-no">Post Description</th>
+			    	<th class="mobile-no">Reply Email</th>
 			    </tr>
 			    {% for post in posts %}
 				    <tr>
@@ -38,8 +38,8 @@
 				    		<th>No Images</th>
 				    	{% endif %}
 				    	<th class="truncate posts-post-title"><a href="/posts/{{post.id}}">{{post.title}}</a></th>
-				    	<th class="truncate posts-post-body">{{post.body}}</th>
-				    	<th>Reply to: {{post.email}}</th>
+				    	<th class="truncate posts-post-body mobile-no">{{post.body}}</th>
+				    	<th class="mobile-no">Reply to: {{post.email}}</th>
 				    </tr>
 			    {% endfor %}
 			</table>
