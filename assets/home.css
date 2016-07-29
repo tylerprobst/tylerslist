@@ -234,12 +234,34 @@ text-overflow: ellipsis;
 	color:red;
 	font-size: 7em;
 	font-family: 'Indie Flower', cursive;
+	text-decoration: none;
 }
 
 #list {
 	color: purple;
 	font-size: 7em;
 	font-family: 'Indie Flower', cursive;
+	text-decoration: none;
+}
+
+#main-logo {
+	text-decoration: none;
+}
+
+#tyler:link, #list:link, #main-logo:link  {
+    text-decoration: none;
+}
+
+#tyler:visited, #list:visited, #main-logo:visited  {
+    text-decoration: none;
+}
+
+#tyler:hover, #list:hover, #main-logo:hover  {
+    text-decoration: none;
+}
+
+#tyler:active, #list:active, #main-logo:active  {
+    text-decoration: none;
 }
 
 .upload-thumbnail {
