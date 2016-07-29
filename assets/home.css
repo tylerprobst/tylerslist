@@ -133,20 +133,12 @@ ul#cd-gallery-items li {
 	margin-top: 2em;
 }
 
-#upload-area {
-    margin: 1em;
-    text-align: center;
-    border-style: dashed;
-    border-width: 0.25em;
-    padding: 5em;
-}
-
-#upload-photos {
-	width: 100%;
-}
-
 .form-btn {
 	margin: .5em;
+}
+
+#files {
+	visibility: hidden;
 }
 
 .image {
@@ -250,6 +242,31 @@ text-overflow: ellipsis;
 	font-family: 'Indie Flower', cursive;
 }
 
+.upload-thumbnail {
+	height: 100px;
+    margin: 10px;
+    margin-bottom: 20px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+
+#upload-area {
+    width: 100%;
+    text-align: center;
+    border-style: dashed;
+    border-width: 0.25em;
+    padding: 2em;
+}
+
+#upload-photos {
+	width: 100%;
+}
+
 @media (max-width: 1169px) {
 
 	header {	
@@ -269,9 +286,18 @@ text-overflow: ellipsis;
 	header {
 		margin-bottom: 1em;
 	}
+
+	#upload-area {
+		padding: 0;
+	}
 }
 
 @media (max-width: 600px) {
+
+
+	header {
+		margin-bottom: 1em;
+	}
 
 	input#files {
 		left: -2em;
@@ -280,10 +306,6 @@ text-overflow: ellipsis;
 
 	#upload-photos, #create-submit {
 		width: 100%;
-	}
-
-	header {
-		margin-bottom: 1em;
 	}
 
 	#tylers, #list {

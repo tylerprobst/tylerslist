@@ -4,8 +4,10 @@ $(document).ready(function () {
 		upload.off()
 		var area = $('#upload-photos');
 
-		area.append('<div id="upload-area"><label for="files">Select multiple files: </label><input id="files" name="file[]" type="file" multiple/> <output id="result" /></div>');
+		area.append('<div id="upload-area"><label for="files">Select multiple files: <br> Click here!</label><input id="files" name="file[]" type="file" multiple/> <output id="result" /></div>');
 	    //Check File API support
+	    var div = document.createElement("div");
+	    div.classList.add('row');
 	    if(window.File && window.FileList && window.FileReader)
 	    {
 	        var filesInput = document.getElementById("files");
@@ -15,7 +17,7 @@ $(document).ready(function () {
 	            var files = event.target.files; //FileList object
 	            var output = document.getElementById("result");
 	            
-	            $('.thumbnail').remove();
+	            $('.upload-thumbnail').remove();
 
 	            for(var i = 0; i< files.length; i++) {
 	                var file = files[i];
@@ -30,9 +32,11 @@ $(document).ready(function () {
 	                    
 	                    var picFile = event.target;
 	                    
-	                    var div = document.createElement("div");
 	                    
-	                    div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" +
+
+	                    
+	                    
+	                    div.innerHTML += "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'><img class='upload-thumbnail' src='" + picFile.result + "'" +
 	                            "title='" + picFile.name + "'/>";
 	                    
 	                    output.insertBefore(div,null);            
