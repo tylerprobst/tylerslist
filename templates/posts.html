@@ -20,15 +20,15 @@
 		</tr>
 	</table>
 </div>
+<br>
 {% if posts %}	
-	<div class="posts">
-		<div class="table-responsive">
+		<div class="posts table-responsive">
 	  		<table class="table">
 			    <tr>
 			    	<th>Post Image</th>
 			    	<th>Post Title</th>
 			    	<th class="mobile-no">Post Description</th>
-			    	<th class="mobile-no">Reply Email</th>
+			    	<th class="mobile-no posts-post-email">Reply Email</th>
 			    </tr>
 			    {% for post in posts %}
 				    <tr>
@@ -39,12 +39,11 @@
 				    	{% endif %}
 				    	<th class="truncate posts-post-title"><a href="/posts/{{post.id}}">{{post.title}}</a></th>
 				    	<th class="truncate posts-post-body mobile-no">{{post.body}}</th>
-				    	<th class="mobile-no">Reply to: {{post.email}}</th>
+				    	<th class="truncate posts-post-email mobile-no">Reply to: {{post.email}}</th>
 				    </tr>
 			    {% endfor %}
 			</table>
 		</div>
-	</div> 	
 {% else %}
 <div class="message-to-user">
 	<h2>No posts have been created in this category yet. We would be honored if you posted with us.</h2>

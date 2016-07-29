@@ -198,7 +198,9 @@ ul#cd-gallery-items li {
 	margin-left: 1em;
 	margin-right: 1em;
 	border-radius: 10px;
-	max-width: 90vw;
+	overflow-x: hidden;
+	width: auto;
+	border: none;
 }
 
 .posts-post-body {
@@ -224,10 +226,11 @@ ul#cd-gallery-items li {
 }
 
 .truncate {
-width: 250px;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+	max-width: 24vw;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/*display: table-cell;*/
 }
 
 #tylers {
@@ -293,6 +296,10 @@ text-overflow: ellipsis;
 
 	header {	
 		margin-bottom: 1em;
+	}
+
+	.posts-post-email {
+		display: none;
 	}
 }
 
