@@ -23,8 +23,8 @@
 
 			{% with messages = get_flashed_messages() %}
 				{% for message in messages %}
-					<div class="alert alert-info">
-  						<strong>{{message}}</strong>
+					<div class="alert alert-info" id="flash">
+  						<p><strong>{{message}}</strong></p>
 					</div>
 				{% endfor %}
 			{% endwith %}

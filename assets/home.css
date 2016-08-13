@@ -1,5 +1,5 @@
 body {
-	background-image: url("/assets/categoryPics/tahoebackground_mini.JPG");
+	background-image: url("/assets/categoryPics/tahoebackground_mini_fotor.jpg");
 	background-repeat: no-repeat;
     background-attachment: fixed;
 	background-size: cover;
@@ -26,10 +26,12 @@ h2 a {
 
 header {
 	margin-bottom: -10em;
+	padding: 0;
 }
 
 main {
-	margin-bottom: 5em; 
+	 margin-top: 10em;
+	 margin-bottom: 5em; 
 }
 
 table {
