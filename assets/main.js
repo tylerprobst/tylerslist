@@ -57,3 +57,11 @@ $(document).ready(function () {
 
 
 })
+
+
+
+$(window).load(function () {
+	$('#loader').toggleClass('content-loaded');
+	$('#all-the-things').toggleClass('content-loading');
+	console.log('LOADED!!!!!');
+})
