@@ -61,6 +61,16 @@ def create():
 			flash('please fill out the required fields')
 			return render_template('create.html', title=title, body=body, email=email, price=price)
 
+@posts.route('/contact-email', methods=['POST'])
+def mailme():
+	email = request.form.get('email')
+	body = request.form.get('body')
+	subject = request.form.get('subject')
+	msg = Message('Portfolio Contact Form Email', sender=email, recipients=app.config['MAIL_DEFAULT_SENDER'])
+	msg.html = 'Message through contact form: <br>' + 'Subject: ' + subject + '<br> Body: ' + body
+	mail.send(msg)
+	return redirect('tylerprobst.github.io')
+
 @posts.route('/post/delete/<path:post_id>')
 def delete(post_id):
 	post = Post.query.filter(Post.id==post_id).first()

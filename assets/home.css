@@ -1,11 +1,21 @@
 body {
+	/*background-image: url("/assets/categoryPics/newBG.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-size: cover;*/
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+#all-the-things {
 	background-image: url("/assets/categoryPics/newBG.jpg");
 	background-repeat: no-repeat;
     background-attachment: fixed;
 	background-size: cover;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	padding: 0;
-	margin: 0;
+	margin: 0;	
 }
 
 hr {
